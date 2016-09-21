@@ -1,0 +1,13 @@
+{
+  "name": "portal-api",
+  "version": "0.0.1",
+  "description": "List of APIs for Portal Management",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.1"
+  }
+}

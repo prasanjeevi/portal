@@ -1,0 +1,7 @@
+{
+    "mongodb": "mongodb://localhost:27017/portal",
+    "port": 3000,
+    "message": "welcome",
+    "stages": ["Dev","Released","Testing", "Published"],
+    "category": ["Essential","Finance"]
+}
