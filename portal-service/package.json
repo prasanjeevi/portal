@@ -1,6 +1,6 @@
 {
   "name": "portal-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "List of APIs for Portal Management",
   "scripts": {
     "start": "node app.js"
@@ -8,6 +8,12 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "jsonwebtoken": "^7.1.9",
     "mongoose": "^4.6.1"
-  }
+  },
+  "repository" : { 
+    "type" : "git",
+    "url" : "https://github.com/prasanjeevi/portal.git"
+  },
+  "license": "ISC"
 }
