@@ -63,7 +63,7 @@ router.route('/app')
     })
     .delete((req,res) => {
         let filter = {_id:req.params.id};
-        App.remove(filter, (err, movie) => {
+        App.remove(filter, (err) => {
             if(err){
                     res.status(500).json({message: err.message});
             }

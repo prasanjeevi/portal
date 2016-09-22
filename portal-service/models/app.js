@@ -9,6 +9,7 @@ var appSchema = new Schema({
     version: String,
     stage: Number,
     category: Number,
+    permission: Number,
     icon: String,
     active: Boolean,
     date: { type: Date, default: Date.now },

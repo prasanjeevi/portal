@@ -63,7 +63,7 @@ router.route('/user')
     })
     .delete((req,res) => {
         let filter = {_id:req.params.id};
-        User.remove(filter, (err, movie) => {
+        User.remove(filter, (err) => {
             if(err){
                     res.status(500).json({message: err.message});
             }

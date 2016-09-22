@@ -14,70 +14,64 @@
     <!-- Container #2 -->
     <div flex layout="row">
 
+        <!-- Container #3 -->
+        <md-sidenav md-is-locked-open="false" class="md-whiteframe-z2"></md-sidenav>
+
         <!-- Container #4 -->
         <md-content flex id="content" layout-padding>
-            <form name="appForm">
+
             <md-toolbar class="md-hue-2">
                 <div class="md-toolbar-tools">
-                    <md-icon class="material-icons">apps</md-icon>
+                    <md-icon class="material-icons">account_circle</md-icon>
                     <h2>
-                        <span>{{mode}} App</span>
+                        <span>{{mode}} User</span>
                     </h2>
                     <span flex></span>
-                    <md-switch ng-if="mode == 'Edit'" aria-label="Deactive" ng-model="app.active" title="Deactive">
-                    </md-switch>
                 </div>
             </md-toolbar>
-
+            <form name="loginForm">
             <md-input-container class="md-block" flex-gt-xs>
-                <label>App Name</label>
-                <md-icon class="material-icons">font_download</md-icon>
-                <input ng-model="app.name">
+                <label>Name</label>
+                <md-icon class="material-icons">face</md-icon>
+                <input type="text" ng-model="user.name">
             </md-input-container>
-             <md-input-container class="md-block" flex-gt-xs>
-                <label>Description</label>
-                <md-icon class="material-icons">message</md-icon>
-                <textarea ng-model="app.description"></textarea>
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>Email</label>
+                <md-icon class="material-icons">mail</md-icon>
+                <input type="mail" ng-model="user.email">
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>Password</label>
+                <md-icon class="material-icons">vpn_key</md-icon>
+                <input type="password" ng-model="user.password">
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>Confirm Password</label>
+                <md-icon class="material-icons">vpn_key</md-icon>
+                <input type="password" ng-model="comfirmPassword">
             </md-input-container>
              <div layout="row">
                 <md-input-container flex="50">
-                    <label>Version</label>
+                    <label>Role</label>
                     <md-icon class="material-icons">unarchive</md-icon>
-                    <input ng-model="app.version">
+                    <md-select ng-model="user.role">
+                         <md-option ng-repeat="option in roles" ng-value="$index">{{option}}</md-option>
+                    </md-select>
                 </md-input-container>
                 <md-input-container flex="50">
-                    <label>Stage</label>
+                    <label>Designation</label>
                     <md-icon class="material-icons">unarchive</md-icon>
-                    <md-select ng-model="app.stage">
-                        <md-option ng-repeat="option in stages" ng-value="$index">{{option}}</md-option>
+                    <md-select ng-model="user.designation">
+                        <md-option ng-repeat="option in designation" ng-value="$index">{{option}}</md-option>
                     </md-select>
                 </md-input-container>
              </div>
              <div layout="row">
-                <md-input-container flex="50">
-                    <label>Category</label>
-                    <md-icon class="material-icons">unarchive</md-icon>
-                    <md-select ng-model="app.category">
-                        <md-option ng-repeat="option in category" ng-value="$index">{{option}}</md-option>
-                    </md-select>
-                </md-input-container>
-                <md-input-container flex="50">
-                    <label>Permission</label>
-                    <md-icon class="material-icons">unarchive</md-icon>
-                    <md-select ng-model="app.permission">
-                         <md-option ng-repeat="option in designation" ng-value="$index">{{option}}</md-option>
-                    </md-select>
-                </md-input-container>
-             </div>
-             <div layout="row">
-                <md-button ng-if="mode == 'Create'" class="md-raised md-primary" aria-label="Create" ng-click="createApp()">
+                <md-button ng-if="mode == 'Create'" class="md-raised md-primary" aria-label="Create" ng-click="createUser()">
                     <md-icon class="md-icon-button">create</md-icon>Create
                 </md-button>
-                <md-button ng-if="mode == 'Edit'" class="md-raised md-primary" aria-label="Save" ng-click="saveApp()">
+                <md-button ng-if="mode == 'Edit'" class="md-raised md-primary" aria-label="Save" ng-click="saveUser()">
                     <md-icon class="md-icon-button">save</md-icon>Save
-                </md-button>
-                <md-button class="md-raised md-primary" aria-label="List" ng-click="getApps()">
-                    <md-icon class="md-icon-button">list</md-icon>List
                 </md-button>
              </div>
              <p>{{app}}</p>
