@@ -21,13 +21,13 @@
     </md-list>
 </md-sidenav>
 
-<md-content flex id="content" layout-padding ng-init="page='user'">
-    <form name="userForm">
+<md-content flex id="content" layout-padding ng-init="page='app'">
+    <form name="appForm">
         <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
                 <md-icon class="material-icons">apps</md-icon>
                 <h2>
-                    <span>{{mode}} User</span>
+                    <span>{{mode}} App</span>
                 </h2>
                 <span flex></span>
                 <md-switch ng-if="mode == 'Edit'" aria-label="Deactive" ng-model="item.active" title="Deactive">
@@ -35,48 +35,52 @@
             </div>
         </md-toolbar>
         <md-input-container class="md-block" flex-gt-xs>
-            <label>Name</label>
-            <md-icon class="material-icons">face</md-icon>
-            <input type="text" ng-model="item.name">
+            <label>App Name</label>
+            <md-icon class="material-icons">font_download</md-icon>
+            <input ng-model="item.name">
         </md-input-container>
-        <md-input-container class="md-block" flex-gt-xs>
-            <label>Email</label>
-            <md-icon class="material-icons">mail</md-icon>
-            <input type="mail" ng-model="item.email">
+            <md-input-container class="md-block" flex-gt-xs>
+            <label>Description</label>
+            <md-icon class="material-icons">message</md-icon>
+            <textarea ng-model="item.description"></textarea>
         </md-input-container>
-        <md-input-container class="md-block" flex-gt-xs>
-            <label>Password</label>
-            <md-icon class="material-icons">vpn_key</md-icon>
-            <input type="password" ng-model="item.password">
+        <div layout="row">
+        <md-input-container flex="50">
+            <label>Version</label>
+            <md-icon class="material-icons">unarchive</md-icon>
+            <input ng-model="item.version">
         </md-input-container>
-        <md-input-container class="md-block" flex-gt-xs>
-            <label>Confirm Password</label>
-            <md-icon class="material-icons">vpn_key</md-icon>
-            <input type="password" ng-model="comfirmPassword">
+        <md-input-container flex="50">
+            <label>Stage</label>
+            <md-icon class="material-icons">unarchive</md-icon>
+            <md-select aria-label="Stage" ng-model="item.stage">
+                <md-option ng-repeat="option in stages" ng-value="$index">{{option}}</md-option>
+            </md-select>
         </md-input-container>
-            <div layout="row">
+        </div>
+        <div layout="row">
             <md-input-container flex="50">
-                <label>Role</label>
+                <label>Category</label>
                 <md-icon class="material-icons">unarchive</md-icon>
-                <md-select ng-model="item.role">
-                        <md-option ng-repeat="option in roles" ng-value="$index">{{option}}</md-option>
+                <md-select aria-label="Category" ng-model="item.category">
+                    <md-option ng-repeat="option in category" ng-value="$index">{{option}}</md-option>
                 </md-select>
             </md-input-container>
             <md-input-container flex="50">
-                <label>Designation</label>
+                <label>Permission</label>
                 <md-icon class="material-icons">unarchive</md-icon>
-                <md-select ng-model="item.designation">
-                    <md-option ng-repeat="option in designation" ng-value="$index">{{option}}</md-option>
+                <md-select aria-label="Permission" ng-model="item.permission">
+                        <md-option ng-repeat="option in designation" ng-value="$index">{{option}}</md-option>
                 </md-select>
             </md-input-container>
-            </div>
-            <div layout="row">
+        </div>
+        <div layout="row">
             <md-button ng-if="mode == 'Create'" class="md-raised md-primary" aria-label="Create" ng-click="create()">
                 <md-icon class="md-icon-button">create</md-icon>Create
             </md-button>
             <md-button ng-if="mode == 'Edit'" class="md-raised md-primary" aria-label="Save" ng-click="save()">
                 <md-icon class="md-icon-button">save</md-icon>Save
             </md-button>
-            </div>
+        </div>
     </form>
 </md-content>

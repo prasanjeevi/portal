@@ -1,3 +1,18 @@
+/*@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Inconsolata'),
+       local('Inconsolata-Regular'),
+       url(fonts/Inconsolata-Regular.ttf) format('truetype');
+}
+button,
+select,
+html,
+textarea,
+input {
+  font-family: "Helvetica Neue", sans-serif !important; }*/
+
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -33,4 +48,24 @@
 
   /* Support for IE. */
   font-feature-settings: 'liga';
+}
+
+md-toolbar h1 {
+    font-family: 'Roboto Thin';
+    font-size: 1.250em;
+    font-weight: 400;
+    padding: 0px 8px;
+}
+
+md-list-item > button {
+  width:100%;
+  text-align:left !important;
+}
+
+md-list .md-button.selected {
+    color: #03a9f4;
+}
+
+md-side-nav{
+  height:100%;
 }

@@ -46,11 +46,11 @@ router.post('/authenticate', (req,res) => {
 
 // middleware to validate the token for api requests
 router.use('/api', (req,res,next) => {
-    let token = req.headers['authtoken'];console.info(req.method, req.url);
+    let token = req.headers['authtoken'];
     if(req.method === 'OPTIONS'){  
         return next(); 
     }
-    console.info(req.method, req.url);
+    console.info(new Date(),req.method, req.url);
     jwt.verify(token, config.secret, (err,decoded) => {
         if(err){
             return res.status(401).json({message: 'AuthToken is not valid'});

@@ -1,60 +1,35 @@
-<!doctype html>
-<html ng-app='PortalApp'>
-<head>
-    <link href="../node_modules/angular-material/angular-material.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/portal.css"/>
-  </head>
-  <body ng-cloak ng-controller="PortalController" ng-init="init()" layout="column">
-
-    <!-- Container #1 (see wireframe) -->
-    <md-toolbar layout="row" >
-      <h1>App Portal</h1>
+<md-sidenav md-component-id="left" layout-padding>
+    <p>Welcome to App Portal<br/>Please login to continue.</p>
+</md-sidenav>
+<div flex layout="row" layout-align="center">
+<md-content flex='33' flex-xs='100' flex-sm='60' id="content" layout-padding ng-init="page='login'">
+    <md-card>
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <md-icon class="material-icons">security</md-icon>
+            <h2>
+                <span>Login{{path}}</span>
+            </h2>
+            <span flex></span>
+        </div>
     </md-toolbar>
-
-    <!-- Container #2 -->
-    <div flex layout="row">
-
-        <!-- Container #3 -->
-        <md-sidenav md-is-locked-open="false" class="md-whiteframe-z2"></md-sidenav>
-
-        <!-- Container #4 -->
-        <md-content flex id="content" layout-padding>
-
-            <md-toolbar class="md-hue-2">
-                <div class="md-toolbar-tools">
-                    <md-icon class="material-icons">security</md-icon>
-                    <h2>
-                        <span>Login</span>
-                    </h2>
-                    <span flex></span>
-                </div>
-            </md-toolbar>
-            <form name="loginForm">
-            <md-input-container class="md-block" flex-gt-xs>
-                <label>Email</label>
-                <md-icon class="material-icons">mail</md-icon>
-                <input type="mail" ng-model="user.email">
-            </md-input-container>
-             <md-input-container class="md-block" flex-gt-xs>
-                <label>Password</label>
-                <md-icon class="material-icons">vpn_key</md-icon>
-                <input type="password" ng-model="user.password">
-            </md-input-container>
-             <div layout="row">
-                <md-button class="md-raised md-primary" aria-label="Login" ng-click="login()">
-                    <md-icon class="md-icon-button">perm_identity</md-icon>Login
-                </md-button>
-             </div>
-            </form>
-        </md-content>
-
-    </div>
-
-    <script src="../node_modules/angular/angular.js" type="text/javascript" ></script>
-    <script src="../node_modules/angular-animate/angular-animate.js" type="text/javascript" ></script>
-    <script src="../node_modules/angular-aria/angular-aria.js" type="text/javascript" ></script>
-    <script src="../node_modules/angular-material/angular-material.js" type="text/javascript" ></script>
-    <script src="../node_modules/angular-cookies/angular-cookies.js" type="text/javascript" ></script>
-    <script src="./src/users/Portal.js" type="text/javascript" ></script>
-  </body>
-  </html>
+    <form name="loginForm">
+    <md-input-container class="md-block" flex-gt-xs>
+        <label>Email</label>
+        <md-icon class="material-icons">mail</md-icon>
+        <input type="mail" autocomplete="false" ng-model="user.email">
+    </md-input-container>
+        <md-input-container class="md-block" flex-gt-xs>
+        <label>Password</label>
+        <md-icon class="material-icons">vpn_key</md-icon>
+        <input type="password" ng-model="user.password">
+    </md-input-container>
+        <div layout="row">
+        <md-button class="md-raised md-primary" aria-label="Login" ng-click="login()">
+            <md-icon class="md-icon-button">perm_identity</md-icon>Login
+        </md-button>
+        </div>
+    </form>
+    </md-card>
+</md-content>
+</div>
