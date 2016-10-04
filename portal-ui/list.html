@@ -37,8 +37,8 @@
             <p ng-if="page=='app'">{{item.name}}<span hide-xs> v{{item.version}} | <span>{{category[item.category]}}</span> | <span>{{stages[item.stage]}}</span></span></p>
             <p ng-if="page=='user'">{{item.name}}<span hide-xs> | {{roles[item.role]}}</span></p>
             <md-icon ng-click="navigate('/'+page+'/edit', item)" class="material-icons" aria-label="Edit" class="md-primary md-hue-3" >create</md-icon>
-            <md-icon ng-click="addApp(item._id)" class="material-icons" aria-label="Add" class="md-secondary md-hue-3" >add_circle</md-icon>
-            <md-icon ng-click="remove(item)" class="material-icons" aria-label="Delete" class="md-secondary md-hue-3" >delete</md-icon>
+            <md-icon ng-if="page=='app'" ng-click="addApp(item._id)" class="material-icons" aria-label="Add" class="md-secondary md-hue-3" >add_circle</md-icon>
+            <md-icon ng-if="page=='app'" ng-click="remove(item)" class="material-icons" aria-label="Delete" class="md-secondary md-hue-3" >delete</md-icon>
         </md-list-item>
         <md-divider></md-divider>
     </md-list>

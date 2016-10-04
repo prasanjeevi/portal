@@ -1,6 +1,6 @@
 {
-    "mongodb": "mongodb://localhost:27017/portal",
-    "port": 3000,
+    "mongodb": "mongodb://admin:password-1@ds041566.mlab.com:41566/portal",
+    "port": 3001,
     "message": "welcome",
     "stages": ["Dev","Released","Testing", "Published"],
     "category": ["Unspecified","Essential","Finance"],

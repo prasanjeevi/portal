@@ -1,6 +1,7 @@
 (function(){
   'use strict';
-  const host = 'http://localhost:3000'
+  // const host = 'http://localhost:3001';
+  const host = 'http://portal-service.cognizantone.org';
   let app = angular.module('PortalApp', [ 'ngMaterial','ngCookies','ngRoute' ]);
   const httpConfig = {
     headers: {
@@ -67,12 +68,12 @@
 
     $scope.stages = ["Dev","Released","Testing", "Published"];
     $scope.category = ["All","Essential","Finance"];
-    $scope.roles = ["Developer","Tester","User","Admin"];
+    $scope.roles = ["User","Developer","Tester","Admin"];
     $scope.designation = ["Associate","Senior Associate","Lead","Manager"];
 
     $scope.menu = [
       {name:"Apps",icon:"apps",path:'/'},
-      {name:"Create App",icon:"extension",path:'/app'},
+      {name:"Create App",icon:"extension",path:'/app', role:1},
       {name:"Users",icon:"account_circle",path:'/user',role:3},
       {name:"Create User",icon:"perm_identity",path:'/user/user',role:3},
     ];
@@ -98,7 +99,8 @@
     }
 
     $scope.filterRole = function(menuItem) {
-        return (menuItem.role == undefined || menuItem.role == $scope.user.role);
+        let menuRole = menuItem.role || 0;
+        return (menuRole <= $scope.user.role);
     };
 
     init();
@@ -212,8 +214,6 @@
 
     function successCallback(res) {
       toast('Done!');
-      //if($scope.mode == 'Create' || $scope.mode == 'Edit'){ 
-      //}
       if($scope.page == 'app'){
         $location.path('/');
       }
